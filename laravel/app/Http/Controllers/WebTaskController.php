@@ -7,11 +7,30 @@ use Illuminate\Http\Request;
 
 class WebTaskController extends Controller
 {
-    public function index()
-    {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
-    }
+   public function index(Request $request)
+{
+    $status = $request->get('status');
+    $search = $request->get('search');
+
+    $tasks = Task::query()
+        ->when($status, function ($query, $status) {
+            return $query->where('status', $status);
+        })
+        ->when($search, function ($query, $search) {
+            return $query->where(function ($subQuery) use ($search) {
+                $subQuery->where('title', 'like', "%{$search}%")
+                         ->orWhere('description', 'like', "%{$search}%");
+            });
+        })
+        ->orderBy('created_at', 'desc')
+        ->paginate(10)
+        ->appends(['status' => $status, 'search' => $search]);
+
+    return view('tasks.index', compact('tasks', 'status', 'search'));
+}
+
+
+
 
     public function create()
     {

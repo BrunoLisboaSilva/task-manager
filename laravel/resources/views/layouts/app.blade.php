@@ -67,9 +67,6 @@
     }
 </style>
 
-
-
-
 </head>
 <body>
     {{-- Navbar com botão de tema --}}

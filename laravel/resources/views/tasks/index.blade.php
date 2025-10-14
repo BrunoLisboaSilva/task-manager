@@ -1,6 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="card shadow-sm mb-4 border-0">
+    <div class="card-body">
+        <form method="GET" action="{{ route('tasks.index') }}" class="row justify-content-center g-3 align-items-end">
+
+            <div class="col-md-4">
+                <label for="search" class="form-label fw-semibold">Buscar tarefa</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" name="search" id="search"
+                           class="form-control border-start-0"
+                           placeholder="Título ou descrição..."
+                           value="{{ $search ?? '' }}">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="status" class="form-label fw-semibold">Filtrar por status</label>
+                <select name="status" id="status" class="form-select">
+                    <option value="">Todas</option>
+                    <option value="pendente" {{ $status === 'pendente' ? 'selected' : '' }}>Pendente</option>
+                    <option value="em andamento" {{ $status === 'em andamento' ? 'selected' : '' }}>Em andamento</option>
+                    <option value="concluída" {{ $status === 'concluída' ? 'selected' : '' }}>Concluída</option>
+                </select>
+            </div>
+
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-funnel"></i>
+                </button>
+                <a href="{{ route('tasks.index') }}" class="btn btn-outline-secondary">
+                    <i class="bi bi-x-lg"></i>
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold mb-0">
@@ -109,6 +152,11 @@
         </div>
     </div>
 </div>
+
+<div class="d-flex justify-content-center mt-4">
+    {{ $tasks->links('pagination::bootstrap-5') }}
+</div>
+
 
 <!-- Script do Modal -->
 <script>
