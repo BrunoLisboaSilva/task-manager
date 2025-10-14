@@ -1,61 +1,152 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧭 Laravel Task Manager
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Um sistema simples e elegante de **gerenciamento de tarefas (CRUD)** desenvolvido em **Laravel 11** com **Bootstrap 5**, incluindo **modo escuro** e **armazenamento via SQLite**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+✅ Criar novas tarefas;
+✅ Listar todas as tarefas registradas;
+✅ Editar tarefas existentes;
+✅ Excluir tarefas;
+✅ Dashboard com:
+    ■porcentagem de tarefas por status;
+    ■apresentação das últimas 5 tarefas criadas.
+✅ Alternar entre **modo claro e escuro** 
+✅ Interface responsiva e moderna com **Bootstrap 5**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠️ Tecnologias Utilizadas
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Laravel 11** (backend e rotas)
+- **Bootstrap 5.3** (frontend e responsividade)
+- **SQLite** (banco de dados local)
+- **Blade** (sistema de templates do Laravel)
+- **Vite** (build dos assets)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ⚙️ Instalação e Configuração
 
-## Laravel Sponsors
+### 1️⃣ Clonar o repositório
+```bash
+git clone https://github.com/BrunoLisboaSilva/task-manager.git
+cd task-manager
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2️⃣ Instalar as dependências do projeto
+```bash
+composer install
+npm install
+```
 
-### Premium Partners
+### 3️⃣ Configurar o ambiente
+Copie o arquivo `.env.example` e renomeie:
+```bash
+cp .env.example .env
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Gere a chave da aplicação:
+```bash
+php artisan key:generate
+```
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🧩 Banco de Dados
 
-## Code of Conduct
+O projeto utiliza **SQLite**, já configurado no `.env`.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Caso o arquivo não exista:
+```bash
+touch database/database.sqlite
+```
 
-## Security Vulnerabilities
+Execute as migrações e os seeders:
+```bash
+php artisan migrate --seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 💻 Rodar o Servidor
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Execute o servidor backend:
+```bash
+php artisan serve
+```
+
+E o servidor frontend (Vite):
+```bash
+npm run dev
+```
+
+Acesse em:  
+👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## 🎨 Tema Escuro e Claro
+
+O layout alterna entre **modo claro** e **modo escuro** com um simples clique, e a preferência do usuário é salva no navegador.
+
+```html
+<button id="themeToggle" class="btn btn-outline-secondary">
+    <i class="bi bi-moon-fill"></i>
+</button>
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+app/
+ ├── Http/
+ │   └── Controllers/
+ │        ├── TaskController.php
+ │        └── WebTaskController.php
+ ├── Models/
+ │   └── Task.php
+database/
+ ├── migrations/
+ ├── seeders/
+ └── factories/
+resources/
+ └── views/
+      └── tasks/
+          ├── index.blade.php
+          ├── create.blade.php
+          ├── edit.blade.php
+routes/
+ └── web.php
+```
+
+---
+
+## 🧠 Conceitos Aplicados
+
+- Arquitetura **MVC** (Model-View-Controller)  
+- **Validação de formulários** com `Request->validate()`  
+- **Blade Templates** para as views  
+- **Eloquent ORM** para manipulação do banco de dados  
+- **Bootstrap Icons** e **modo escuro persistente**  
+- Uso de **seeders** e **factories** para popular o banco
+
+---
+
+## 🧑‍💻 Autor
+
+**Bruno Lisboa da Silva, 23 anos, Formando em Sistemas de Informação pelo IFCE** 
+
+---
+
+## 📜 Licença
+
+Este projeto está licenciado sob a licença **MIT**. 
+Sinta-se livre para usar, modificar e distribuir.
+
+
+---
