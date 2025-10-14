@@ -2,22 +2,32 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Models\User;
+use App\Models\Task;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Log::info('Rodando DatabaseSeeder...');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Limpa as tabelas para garantir um ambiente limpo
+        DB::table('tasks')->truncate();
+        DB::table('users')->truncate();
+
+        // Cria alguns usuários
+        $users = User::factory()->count(3)->create();
+
+        // Cria algumas tarefas
+        foreach ($users as $user) {
+            Task::factory()->count(3)->create([
+                'created_by' => $user->id,
+            ]);
+        }
+
+        Log::info('Seed finalizado!');
     }
 }
