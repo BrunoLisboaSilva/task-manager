@@ -25,7 +25,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label fw-semibold">Título</label>
-                    <input type="text" name="title" class="form-control form-control-lg" id="title" placeholder="Ex: Gravar vídeo para o canal" required>
+                    <input type="text" name="title" class="form-control form-control-lg" id="title" placeholder="Ex: Verificar rotas do projeto..." required>
                 </div>
 
                 <div class="mb-3">

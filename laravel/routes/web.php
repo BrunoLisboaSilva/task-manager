@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\WebTaskController;
+use App\Http\Controllers\DashboardController;
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/', [WebTaskController::class, 'index'])->name('tasks.index');
 Route::get('/tasks/create', [WebTaskController::class, 'create'])->name('tasks.create');
 Route::post('/tasks', [WebTaskController::class, 'store'])->name('tasks.store');

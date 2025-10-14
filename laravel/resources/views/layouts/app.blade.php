@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
    <style>
+    
+
     body {
         transition: background-color 0.4s ease, color 0.4s ease;
         min-height: 100vh;
@@ -69,6 +71,7 @@
 
 </head>
 <body>
+  
     {{-- Navbar com botão de tema --}}
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm mb-4">
         <div class="container">
@@ -86,6 +89,10 @@
                             <i class="bi bi-house-door"></i> Início
                         </a>
                     </li>
+
+                    <li><a href="{{ route('dashboard') }}" class="btn btn-outline-primary me-2">
+    <i class="bi bi-bar-chart-fill"></i> Dashboard
+</a></li>
                    
                     </li>
                     <li class="nav-item">
@@ -97,6 +104,8 @@
             </div>
         </div>
     </nav>
+
+    
 
     {{-- Conteúdo das páginas --}}
     <main>
