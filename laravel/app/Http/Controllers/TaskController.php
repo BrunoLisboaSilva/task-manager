@@ -56,4 +56,11 @@ class TaskController extends Controller
         $task->delete();
         return response()->json(['message' => 'Tarefa excluída com sucesso']);
     }
+
+    public function complete(Task $task)
+    {
+        $task->update(['status' => 'concluída']);
+
+        return response()->json($task);
+    }
 }
