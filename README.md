@@ -7,6 +7,7 @@ Um sistema simples e elegante de **gerenciamento de tarefas (CRUD)** desenvolvid
 ## 🚀 Funcionalidades
 
 ✅ Criar novas tarefas;
+✅ Adicionar ID de usuário criador;
 ✅ Listar todas as tarefas registradas;
 ✅ Editar tarefas existentes;
 ✅ Excluir tarefas;

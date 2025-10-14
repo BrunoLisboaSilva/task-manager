@@ -75,6 +75,7 @@
                             <th style="width: 35%">Título</th>
                             <th style="width: 25%">Status</th>
                             <th style="width: 25%">Criado em</th>
+                            <th style="width: 25%">Criado por (ID)</th>
                             <th class="text-end" style="width: 15%">Ações</th>
                         </tr>
                     </thead>
@@ -103,8 +104,9 @@
                                     @endswitch
                                 </td>
                                 <td>{{ $task->created_at->format('d/m/Y H:i') }}</td>
+                                <td>{{ $task->created_by }}</td>
                                 <td class="text-end">
-                                    <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-sm btn-outline-primary me-2">
+                                    <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-sm btn-outline-primary me-0 mb-1">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <button

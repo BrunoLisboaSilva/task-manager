@@ -37,19 +37,24 @@ class WebTaskController extends Controller
         return view('tasks.create');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable|string',
-            'status' => 'required|in:pendente,em andamento,concluída',
-            'created_by' => 'required|integer'
-        ]);
+   public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'nullable|string',
+        'status' => 'required|in:pendente,em andamento,concluída',
+    ]);
 
-        Task::create($request->all());
+    Task::create([
+        'title' => $request->title,
+        'description' => $request->description,
+        'status' => $request->status,
+        'created_by' => 1, // ✅ Valor fixo fora da validação
+    ]);
 
-        return redirect()->route('tasks.index')->with('success', 'Tarefa criada com sucesso!');
-    }
+    return redirect()->route('tasks.index')->with('success', 'Tarefa criada com sucesso!');
+}
+
 
     public function edit($id)
     {

@@ -42,6 +42,12 @@
                     </select>
                 </div>
 
+                <div class="mb-3">
+    <label for="created_by" class="form-label">ID do Usuário Criador</label>
+    <input type="number" class="form-control" id="created_by" name="created_by" required>
+</div>
+
+
                 <input type="hidden" name="created_by" value="1">
 
                 <div class="d-flex justify-content-between mt-4">
