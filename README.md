@@ -6,16 +6,16 @@ Um sistema simples e elegante de **gerenciamento de tarefas (CRUD)** desenvolvid
 
 ## 🚀 Funcionalidades
 
-✅ Criar novas tarefas;
-✅ Adicionar ID de usuário criador;
-✅ Listar todas as tarefas registradas;
-✅ Editar tarefas existentes;
-✅ Excluir tarefas;
-✅ Dashboard com:
-    ■porcentagem de tarefas por status;
+- ✅ Criar novas tarefas;
+- ✅ Adicionar ID de usuário criador;
+- ✅ Listar todas as tarefas registradas;
+- ✅ Editar tarefas existentes;
+- ✅ Excluir tarefas;
+- ✅ Dashboard com:
+-     ■porcentagem de tarefas por status;
     ■apresentação das últimas 5 tarefas criadas.
-✅ Alternar entre **modo claro e escuro** 
-✅ Interface responsiva e moderna com **Bootstrap 5**
+- ✅ Alternar entre **modo claro e escuro** 
+- ✅ Interface responsiva e moderna com **Bootstrap 5**
 
 ---
 
