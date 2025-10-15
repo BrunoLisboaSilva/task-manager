@@ -35,6 +35,7 @@ Um sistema simples e elegante de **gerenciamento de tarefas (CRUD)** desenvolvid
 ```bash
 git clone https://github.com/BrunoLisboaSilva/task-manager.git
 cd task-manager
+cd laravel
 ```
 
 ### 2️⃣ Instalar as dependências do projeto
